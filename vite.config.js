@@ -6,5 +6,6 @@ export default defineConfig({
   plugins: [react()],
   server: {
     allowedHosts: true
-  }
+  },
+  base: process.env.VITE_BASE_PATH || "/Meownder",
 })
