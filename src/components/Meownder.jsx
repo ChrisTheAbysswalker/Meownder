@@ -35,9 +35,12 @@ const Meownder = () => {
     // Fetch de un solo gato
     const fetchSingleCat = useCallback(async () => {
         try {
-            const response = await fetch("http://localhost:8080/cats?count=1");
+            const response = await fetch("https://meownder-backend.onrender.com/api/cats?count=1");
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             const data = await response.json();
+
+            console.log(data);
+
             return Array.isArray(data.urls) && data.urls.length > 0 ? data.urls[0] : null;
         } catch (error) {
             console.error("Error fetching cat:", error);
